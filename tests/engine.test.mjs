@@ -1,0 +1,5 @@
+import test from 'node:test';import assert from 'node:assert/strict';import {Session,lessons} from '../dist/engine.js';
+test('mistakes reset combo without skipping characters',()=>{const s=new Session();s.setWord('star');s.type('s');assert.equal(s.type('x').correct,false);assert.equal(s.position,1);for(const c of 'tar')s.type(c);assert.equal(s.targets,1);assert.equal(s.accuracy(),80);assert.equal(s.score,45);assert.equal(s.mistakes.t,1);});
+test('Thai combining marks are accepted in typing order',()=>{const s=new Session();s.setWord('เรียนรู้');for(const c of 'เรียนรู้')s.type(c);assert.equal(s.targets,1);assert.equal(s.accuracy(),100);assert.equal(s.wpm(60),Math.round('เรียนรู้'.length/5));});
+test('reset clears session; completed words cannot score twice',()=>{const s=new Session();s.setWord('a');s.type('a');s.type('a');assert.equal(s.targets,1);s.reset();assert.equal(s.score,0);assert.equal(s.hits,0);});
+test('all lessons contain playable words',()=>{for(const language of Object.values(lessons))for(const words of Object.values(language))assert.ok(words.length>=10&&words.every(w=>w.length>0));});
