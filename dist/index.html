@@ -1,11 +1,125 @@
 <!doctype html>
-<html lang="th"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="theme-color" content="#080e19"><title>Orbit Type — ฝึกพิมพ์ท่องอวกาศ</title><meta name="description" content="เกมฝึกพิมพ์สัมผัสภาษาไทยและอังกฤษ ท่องอวกาศด้วยปลายนิ้วของคุณ"><link rel="stylesheet" href="style.css"></head>
-<body><div class="app"><header><a class="brand" href="./"><span class="logo">✳</span> ORBIT<span>TYPE</span></a><span class="header-label">YOUR NEXT SKILL. YOUR NEXT ORBIT.</span><span class="badge"><i></i> FLIGHT ACADEMY</span></header>
-<main><section class="intro"><div><div class="eyebrow">MISSION 001 / TOUCH TYPING</div><h1>ท่องจักรวาล ด้วย<span>ปลายนิ้ว</span></h1><p>มองจอ วางนิ้ว แล้วออกเดินทาง — ทุกตัวอักษรคือก้าวที่เก่งขึ้น</p></div><div class="best">PERSONAL BEST<strong id="best">0 <small>คะแนน</small></strong></div></section>
-<div class="layout"><aside><div class="section-label">01 / เตรียมออกเดินทาง</div><h2>ตั้งค่าภารกิจ</h2><label for="language">ภาษาที่ฝึก</label><div class="select-wrap"><select id="language"><option value="th">ไทย · เกษมณี</option><option value="en">English · QWERTY</option></select></div><label for="level">บทเรียน</label><select id="level"><option value="home">พื้นฐาน · แถวเหย้า</option><option value="words" selected>คำศัพท์ · ออกสำรวจ</option></select><div class="category-control"><label for="category">หมวดคำศัพท์</label><select id="category" aria-describedby="category-note"><option value="mixed">รวมทุกหมวด · Mix</option><option value="space">อวกาศ · Space</option></select><small id="category-note"></small></div><label>รูปแบบการฝึก</label><div class="modes"><button class="mode active" data-mode="practice"><span>◎ ฝึกสบาย ๆ</span><small>ไม่จับเวลา เน้นความแม่น</small></button><button class="mode" data-mode="timed"><span>◷ ภารกิจ 60 วินาที</span><small>ท้าทายความเร็วของคุณ</small></button></div><label class="toggle"><input id="hints" type="checkbox" checked> แสดงปุ่มและนิ้วที่แนะนำ</label><button id="start" class="primary">เริ่มภารกิจ <span>↗</span></button><div class="tip"><span>✦ FLIGHT TIP</span><p>วางนิ้วชี้ที่ปุ่ม <b>F และ J</b><br>สัมผัสขีดนูน แล้วลองไม่ก้มมองแป้นพิมพ์</p></div></aside>
-<section class="console"><div class="stats"><div><span>คะแนน</span><strong id="score">0000</strong></div><div><span>ความแม่นยำ</span><strong id="accuracy">—<small>%</small></strong></div><div><span>ความเร็ว</span><strong id="wpm">0<small>WPM</small></strong></div><div><span id="time-label">เวลาฝึก</span><strong id="time">0:00</strong></div></div>
-<div class="space" id="space"><div id="scene"></div><div class="scene-top"><span><i></i> SECTOR 07 · THE QUIET ORBIT</span><button id="pause" disabled>Ⅱ พัก</button></div><div class="orbit-label">ORBITAL TRAINING SYSTEM</div><div class="target"><div id="target-label">พร้อมสำหรับการเดินทางครั้งแรก?</div><div id="word" aria-live="polite">สวัสดี นักบิน</div><div id="combo">ความแม่นยำสำคัญกว่าความเร็ว</div></div><div class="scene-bottom"><span id="status">STANDBY / รอเริ่มภารกิจ</span><span>✦ <b id="destroyed">0</b> TARGETS</span></div><div id="flash"></div></div>
-<div class="input-panel"><label for="typing" id="input-label">พิมพ์คำด้านบนเพื่อส่งพลังงานให้ยาน</label><input id="typing" autocomplete="off" autocapitalize="off" spellcheck="false" placeholder="เริ่มภารกิจ แล้วพิมพ์ที่นี่…" disabled aria-describedby="feedback"><span id="feedback">เลือกภาษาแป้นพิมพ์ของเครื่องให้ตรงกับบทเรียน</span></div>
-<div class="keyboard-panel"><div class="keyboard-head"><span>YOUR FLIGHT CONTROLS</span><span id="finger">วางนิ้วบนแถวเหย้า</span></div><div id="keyboard"></div><div class="keyboard-foot"><span><i class="dot"></i> ปุ่มถัดไป</span><span>F / J · ตำแหน่งนิ้วชี้ <span class="esc">Esc เพื่อพัก</span></span></div></div></section></div>
-<section class="history-panel" aria-labelledby="history-title"><div class="eyebrow">FLIGHT LOG / ประวัติการฝึก</div><h2 id="history-title">บอร์ดสถิติการเล่นทั้งหมด</h2><p id="history-note">เก็บในเบราว์เซอร์นี้ เริ่มบันทึกตั้งแต่อัปเดตนี้ · กดจบการฝึกเพื่อบันทึกรอบ</p><div id="history-summary" class="history-summary"></div><div id="history-list"></div></section><footer><span>BUILT FOR FOCUS. MADE FOR PROGRESS.</span><span>ฝึกวันละนิด ให้ปลายนิ้วจำทางได้เอง ✦</span></footer></main></div>
-<dialog id="results"><div class="eyebrow">MISSION COMPLETE</div><h2>อีกหนึ่งวงโคจรที่เก่งขึ้น ✦</h2><p id="result-caption"></p><div id="result-stats"></div><p id="review"></p><div id="word-review"></div><button id="again" class="primary">ออกเดินทางอีกครั้ง ↗</button><button id="close-results" class="secondary">กลับไปเลือกบทเรียน</button></dialog><script type="module" src="app.js"></script></body></html>
+<html lang="th">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta name="theme-color" content="#080e19">
+    <title>Orbit Type — ฝึกพิมพ์ท่องอวกาศ</title>
+    <meta name="description" content="เกมฝึกพิมพ์สัมผัสภาษาไทยและอังกฤษ ท่องอวกาศด้วยปลายนิ้วของคุณ">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="app">
+        <header><a class="brand" href="./"><span class="logo">✳</span> ORBIT<span>TYPE</span></a><span
+                class="header-label">YOUR NEXT SKILL. YOUR NEXT ORBIT.</span><span class="badge"><i></i> FLIGHT
+                ACADEMY</span></header>
+        <section class="account-bar" aria-label="บัญชีผู้เล่น"><span id="account-status">ผู้เยี่ยมชม · ประวัติอยู่ในเครื่องนี้</span><div><button id="account-login" class="account-button">เข้าสู่ระบบ / สมัครสมาชิก</button><button id="account-logout" class="account-button" hidden>ออกจากระบบ</button></div></section><main>
+            <section class="intro">
+                <div>
+                    <div class="eyebrow">MISSION 001 / TOUCH TYPING</div>
+                    <h1>ท่องจักรวาล ด้วย<span>ปลายนิ้ว</span></h1>
+                    <p>มองจอ วางนิ้ว แล้วออกเดินทาง — ทุกตัวอักษรคือก้าวที่เก่งขึ้น</p>
+                </div>
+                <div class="best">PERSONAL BEST<strong id="best">0 <small>คะแนน</small></strong></div>
+            </section>
+            <div class="layout">
+                <aside>
+                    <div class="section-label">01 / เตรียมออกเดินทาง</div>
+                    <h2>ตั้งค่าภารกิจ</h2><label for="language">ภาษาที่ฝึก</label>
+                    <div class="select-wrap"><select id="language">
+                            <option value="th">ไทย · เกษมณี</option>
+                            <option value="en">English · QWERTY</option>
+                        </select></div><label for="level">บทเรียน</label><select id="level">
+                        <option value="home">พื้นฐาน · แถวเหย้า</option>
+                        <option value="words" selected>คำศัพท์ · ออกสำรวจ</option>
+                    </select>
+                    <div class="category-control"><label for="category">หมวดคำศัพท์</label><select id="category"
+                            aria-describedby="category-note">
+                            <option value="mixed">รวมทุกหมวด · Mix</option>
+                            <option value="space">อวกาศ · Space</option>
+                        </select><small id="category-note"></small></div><label>รูปแบบการฝึก</label>
+                    <div class="modes"><button class="mode active" data-mode="practice"><span>◎ ฝึกสบาย
+                                ๆ</span><small>ไม่จับเวลา เน้นความแม่น</small></button><button class="mode"
+                            data-mode="timed"><span>◷ ภารกิจ 60
+                                วินาที</span><small>ท้าทายความเร็วของคุณ</small></button></div><label
+                        class="toggle"><input id="hints" type="checkbox" checked> แสดงปุ่มและนิ้วที่แนะนำ</label><button
+                        id="start" class="primary">เริ่มภารกิจ <span>↗</span></button>
+                    <div class="tip"><span>✦ FLIGHT TIP</span>
+                        <p>วางนิ้วชี้ที่ปุ่ม <b>F และ J</b><br>สัมผัสขีดนูน แล้วลองไม่ก้มมองแป้นพิมพ์</p>
+                    </div>
+                </aside>
+                <section class="console">
+                    <div class="stats">
+                        <div><span>คะแนน</span><strong id="score">0000</strong></div>
+                        <div><span>ความแม่นยำ</span><strong id="accuracy">—<small>%</small></strong></div>
+                        <div><span>ความเร็ว</span><strong id="wpm">0<small>WPM</small></strong></div>
+                        <div><span id="time-label">เวลาฝึก</span><strong id="time">0:00</strong></div>
+                    </div>
+                    <div class="space" id="space">
+                        <div id="scene"></div>
+                        <div class="scene-top"><span><i></i> SECTOR 07 · THE QUIET ORBIT</span><button id="pause"
+                                disabled>Ⅱ พัก</button></div>
+                        <div class="orbit-label">ORBITAL TRAINING SYSTEM</div>
+                        <div class="target">
+                            <div id="target-label">พร้อมสำหรับการเดินทางครั้งแรก?</div>
+                            <div id="word" aria-live="polite">สวัสดี นักบิน</div>
+                            <div id="combo">ความแม่นยำสำคัญกว่าความเร็ว</div>
+                        </div>
+                        <div class="scene-bottom"><span id="status">STANDBY / รอเริ่มภารกิจ</span><span>✦ <b
+                                    id="destroyed">0</b> TARGETS</span></div>
+                        <div id="flash"></div>
+                    </div>
+                    <div class="input-panel"><label for="typing"
+                            id="input-label">พิมพ์คำด้านบนเพื่อส่งพลังงานให้ยาน</label><input id="typing"
+                            autocomplete="off" autocapitalize="off" spellcheck="false"
+                            placeholder="เริ่มภารกิจ แล้วพิมพ์ที่นี่…" disabled aria-describedby="feedback"><span
+                            id="feedback">เลือกภาษาแป้นพิมพ์ของเครื่องให้ตรงกับบทเรียน</span></div>
+                    <div class="keyboard-panel">
+                        <div class="keyboard-head"><span>YOUR FLIGHT CONTROLS</span><span
+                                id="finger">วางนิ้วบนแถวเหย้า</span></div>
+                        <div id="keyboard"></div>
+                        <div class="keyboard-foot"><span><i class="dot"></i> ปุ่มถัดไป</span><span>F / J ·
+                                ตำแหน่งนิ้วชี้ <span class="esc">Esc เพื่อพัก</span></span></div>
+                    </div>
+                </section>
+            </div>
+            <section class="history-panel" aria-labelledby="history-title">
+                <div class="eyebrow">FLIGHT LOG / ประวัติการฝึก</div>
+                <h2 id="history-title">บอร์ดสถิติการเล่นทั้งหมด</h2>
+                <p id="history-note">เก็บในเบราว์เซอร์นี้ เริ่มบันทึกตั้งแต่อัปเดตนี้ · กดจบการฝึกเพื่อบันทึกรอบ</p>
+                <div class="history-actions"><button id="sync-history" class="account-button" hidden>ซิงก์อีกครั้ง</button><button id="import-history" class="account-button" hidden>นำประวัติในเครื่องเข้าบัญชี</button></div><div id="history-summary" class="history-summary"></div>
+                <div id="history-list"></div>
+            </section>
+            <footer><span>BUILT FOR FOCUS. MADE FOR PROGRESS.</span><span>ฝึกวันละนิด ให้ปลายนิ้วจำทางได้เอง ✦</span>
+            </footer>
+        </main>
+    </div>
+    <dialog id="results">
+        <div class="eyebrow">MISSION COMPLETE</div>
+        <h2>อีกหนึ่งวงโคจรที่เก่งขึ้น ✦</h2>
+        <p id="result-caption"></p>
+        <div id="result-stats"></div>
+        <p id="review"></p>
+        <div id="word-review"></div><button id="again" class="primary">ออกเดินทางอีกครั้ง ↗</button><button
+            id="close-results" class="secondary">กลับไปเลือกบทเรียน</button>
+    </dialog>
+    <dialog id="auth-dialog" aria-labelledby="auth-title">
+<div class="eyebrow">PILOT ACCOUNT</div><h2 id="auth-title">เข้าสู่ระบบ</h2>
+<p>เก็บพัฒนาการของคุณ แล้วฝึกต่อได้จากทุกเครื่อง</p>
+<form id="auth-form">
+<div id="auth-name-field" hidden><label for="auth-name">ชื่อที่แสดง</label><input id="auth-name" autocomplete="nickname" maxlength="60"></div>
+<div id="auth-email-field"><label for="auth-email">อีเมล</label><input id="auth-email" type="email" autocomplete="email" required maxlength="254"></div>
+<div id="auth-password-field"><label for="auth-password">รหัสผ่าน</label><input id="auth-password" type="password" autocomplete="current-password" required minlength="8" maxlength="128"></div>
+<div id="auth-confirm-field" hidden><label for="auth-confirm">ยืนยันรหัสผ่าน</label><input id="auth-confirm" type="password" autocomplete="new-password" maxlength="128"></div>
+<p id="auth-message" role="status" aria-live="polite"></p>
+<button id="auth-submit" class="primary" type="submit">เข้าสู่ระบบ</button>
+<button id="auth-switch" class="secondary" type="button">ยังไม่มีบัญชี? สมัครสมาชิก</button>
+<div class="auth-links"><button id="auth-forgot" type="button">ลืมรหัสผ่าน</button><button id="auth-resend" type="button">ส่งอีเมลยืนยันอีกครั้ง</button></div>
+</form><button id="auth-close" type="button" class="secondary">กลับไปเล่น</button></dialog>
+<dialog id="import-dialog" aria-labelledby="import-title"><h2 id="import-title">นำประวัติเข้าบัญชี</h2><p id="import-caption"></p><button id="import-confirm" class="primary">นำเข้า</button><button id="import-cancel" class="secondary">ยกเลิก</button></dialog>
+<script type="module" src="app.js"></script>
+</body>
+
+</html>

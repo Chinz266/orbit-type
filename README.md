@@ -21,3 +21,15 @@ dist/index.html: โครงหน้า; style.css: สไตล์; app.js: U
 
 ## ประวัติและคำผิด
 บอร์ดสถิติบันทึกแต่ละรอบเมื่อกดจบการฝึกหรือหมดเวลา พร้อมหมวด ภาษา โหมด และรายละเอียดคำที่พิมพ์ผิด (ตัวที่พิมพ์ / ตัวที่ถูก / ตำแหน่ง) รวมถึงคำที่ยังพิมพ์ไม่จบ สรุปความแม่นยำรวมถ่วงตามจำนวนอักขระ และ WPM รวมตามเวลาฝึก ประวัติเก็บใน localStorage ของเบราว์เซอร์และเริ่มตั้งแต่อัปเดตนี้ หากพื้นที่เต็มจะแจ้งและเก็บรอบใหม่ในหน่วยความจำจนรีโหลด
+
+## Supabase accounts
+- Project: `orbit-type` (`jjxbyimqdbyogivywhsc`), Singapore, organization selected by owner.
+- `dist/supabase-config.js` contains only the public API URL and publishable key. Never add a secret/service-role key to browser files.
+- `supabase/migrations/202611060001_orbit_accounts.sql` creates immutable private sessions; authenticated users can insert/read their own rows only. User names are stored in Auth user metadata. Supabase Auth manages passwords.
+- Signup, login, confirmation resend, password recovery and logout use the official Supabase JS SDK bundled with `npm run build:auth`. Commit the generated browser bundle when updating the SDK.
+- Guest history stays local. Import requires a deliberate confirmation; stable round IDs avoid duplicate imports. Account history and pending uploads use separate local keys for each user. Failed uploads retry on reconnect or the Sync button. A round saved while an account changes belongs to the account that was playing it.
+- History is self-reported practice data, not a tamper-proof public leaderboard.
+- Supabase Auth Site URL and allowed Redirect URL must be `https://orbit-type-chinz.rainyislet4.chatgpt.site/`. Add a local callback only when testing email links locally.
+- Keep email confirmation enabled. Supabase's built-in SMTP is for testing with project team addresses only. To accept public registrations and recovery emails, configure custom SMTP in Authentication > Emails using a verified sender/domain. See https://supabase.com/docs/guides/auth/auth-smtp.
+- The Sites hosting audience is still owner-private; an app login does not change the site's sharing policy.
+- Tests: `node --test --test-isolation=none tests/*.test.mjs` (avoids restricted Windows child-process spawning).
