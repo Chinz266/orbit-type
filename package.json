@@ -9,9 +9,9 @@
   },
   "dependencies": {
     "three": "0.180.0",
-    "@supabase/supabase-js": "^2.0.0"
+    "@supabase/supabase-js": "2.119.0"
   },
   "devDependencies": {
-    "esbuild": "^0.25.0"
+    "esbuild": "0.25.12"
   }
 }

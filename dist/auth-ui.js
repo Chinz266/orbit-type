@@ -112,6 +112,7 @@ export async function initAccount({ onUser, onClient, onReady }) {
         );
       else if (action === "reset") {
         recovery = false;
+        $("account-login").hidden = true;
         message("เปลี่ยนรหัสผ่านเรียบร้อยแล้ว");
         $("auth-switch").hidden = false;
       } else $("auth-dialog").close();
@@ -171,6 +172,7 @@ export async function initAccount({ onUser, onClient, onReady }) {
       // No awaited SDK/database calls inside the SDK's auth-state lock.
       setTimeout(() => {
         const user = session?.user || null;
+        if (!user) recovery = false;
         const changed = userId !== (user?.id || null);
         userId = user?.id || null;
         $("account-login").hidden =
